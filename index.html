@@ -357,5 +357,44 @@
         return false;
       }
     </script>
+    <script>
+function enviarFormulario(event) {
+  event.preventDefault();
+
+  // Pega os valores do formulário
+  const nome = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const assunto = document.getElementById('subject').value.trim();
+  const whatsapp = document.getElementById('whatsapp').value.trim();
+  const mensagem = document.getElementById('message').value.trim();
+
+  // Validação de Nome Completo
+  if (nome.split(' ').length < 2) {
+    alert("Por favor, digite seu nome completo.");
+    return false;
+  }
+
+  // Aqui você poderia fazer o envio para um servidor, se existisse API/backend
+  // Mas como você quer redirecionar para o WhatsApp, vamos montar a mensagem:
+
+  const textoWhatsApp = `Olá, meu nome é ${nome}. Gostaria de falar sobre: ${assunto}. Meu e-mail é ${email}. Mensagem: ${mensagem}`;
+  const textoCodificado = encodeURIComponent(textoWhatsApp);
+
+  // Exibe mensagem de agradecimento
+  document.querySelector(".contact-form").innerHTML = `
+    <h2>Obrigado pelo contato!</h2>
+    <p>Recebemos sua mensagem. Em instantes, você será redirecionado para o nosso WhatsApp.</p>
+  `;
+
+  // Redireciona após 3 segundos
+  setTimeout(() => {
+    window.location.href = `https://wa.me/5521991159686?text=${textoCodificado}`;
+  }, 3000);
+
+  return false;
+}
+</script>
+
+    
 </body>
 </html>
