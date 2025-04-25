@@ -1,0 +1,418 @@
+/* Adicionando elementos modernos e animações */
+.slide-in-left {
+    animation: slideInLeft 1s ease-in-out;
+}
+
+.slide-in-right {
+    animation: slideInRight 1s ease-in-out;
+}
+
+.fade-in {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.bounce {
+    animation: bounce 1s ease infinite;
+}
+
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Botões modernos */
+.btn {
+    border-radius: 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
+    z-index: -2;
+}
+
+.btn:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: all 0.3s;
+    z-index: -1;
+}
+
+.btn:hover:before {
+    width: 100%;
+}
+
+.btn-primary {
+    box-shadow: 0 4px 15px rgba(34, 92, 26, 0.4);
+}
+
+.btn-secondary {
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+}
+
+.btn-cta {
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+    transform: translateY(0);
+    transition: all 0.3s;
+}
+
+.btn-cta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(212, 175, 55, 0.6);
+}
+
+/* Cards com efeito de elevação */
+.service-card, .feature-box, .number-box, .faq-item {
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.service-card:hover, .feature-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Efeito de destaque para ícones */
+.feature-icon, .faq-icon, .contact-icon {
+    transition: all 0.3s ease;
+}
+
+.feature-box:hover .feature-icon,
+.faq-item:hover .faq-icon {
+    transform: scale(1.2);
+}
+
+/* Carrossel para serviços */
+.services-slider {
+    position: relative;
+    overflow: hidden;
+}
+
+.services-slider .slider-container {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.services-slider .service-card {
+    flex: 0 0 100%;
+}
+
+.slider-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.slider-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ddd;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.slider-dot.active {
+    background-color: var(--primary-color);
+    transform: scale(1.2);
+}
+
+/* Barra de progresso para números */
+.number-box .progress-bar {
+    width: 100%;
+    height: 4px;
+    background-color: #eee;
+    margin-top: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.number-box .progress-bar:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-color: var(--primary-color);
+    animation: progressAnimation 2s ease-in-out forwards;
+}
+
+@keyframes progressAnimation {
+    to {
+        width: 100%;
+    }
+}
+
+/* Efeito de hover para WhatsApp */
+.whatsapp-float a {
+    transform: scale(1);
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float a:hover {
+    transform: scale(1.1);
+}
+
+/* Efeito de destaque para formulário */
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(34, 92, 26, 0.2);
+}
+
+/* Efeito de loading para botão de envio */
+.btn-submit.loading {
+    position: relative;
+    color: transparent;
+}
+
+.btn-submit.loading:after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    margin-top: -10px;
+    margin-left: -10px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: white;
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Efeito de parallax para o hero */
+.hero {
+    background-attachment: fixed;
+}
+
+/* Efeito de hover para links sociais */
+.social-icons a {
+    transform: translateY(0);
+}
+
+.social-icons a:hover {
+    transform: translateY(-5px);
+}
+
+/* Efeito de destaque para FAQ */
+.faq-item {
+    cursor: pointer;
+}
+
+.faq-content p {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+}
+
+.faq-item.active .faq-content p {
+    max-height: 200px;
+}
+
+.faq-item.active {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+/* Efeito de scroll suave */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Efeito de destaque para números */
+.number {
+    position: relative;
+    display: inline-block;
+}
+
+.number:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 3px;
+    background-color: var(--secondary-color);
+}
+
+/* Efeito de destaque para títulos */
+h2 {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 40px;
+}
+
+h2:after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--secondary-color);
+}
+
+/* Efeito de destaque para menu */
+nav ul li a {
+    position: relative;
+}
+
+nav ul li a:after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover:after {
+    width: 100%;
+}
+
+/* Efeito de destaque para logo */
+.logo img {
+    transition: all 0.3s ease;
+}
+
+.logo:hover img {
+    transform: scale(1.05);
+}
+
+/* Efeito de destaque para CTA */
+.cta {
+    position: relative;
+    overflow: hidden;
+}
+
+.cta:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shine 5s infinite;
+}
+
+@keyframes shine {
+    to {
+        left: 100%;
+    }
+}
+
+/* Efeito de destaque para botão de envio */
+.btn-submit {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-submit:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.5s;
+}
+
+.btn-submit:hover:after {
+    left: 100%;
+}
+
+/* Efeito de destaque para WhatsApp */
+.whatsapp-float {
+    animation: bounce 2s infinite;
+}
+
+@media (max-width: 768px) {
+    .whatsapp-float {
+        animation: none;
+    }
+}

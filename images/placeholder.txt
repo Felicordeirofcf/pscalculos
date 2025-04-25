@@ -1,0 +1,6 @@
+Este é um arquivo de placeholder para garantir que o diretório de imagens seja incluído no pacote final.
+
+As imagens reais (hero-bg.jpg, trabalhista.jpg, federal.jpg, civil.jpg, documento.jpg, cta-bg.jpg) 
+devem ser adicionadas a este diretório para completar o site.
+
+A logo já foi gerada e está disponível como logo.png e logo_green_bg.png neste diretório.
