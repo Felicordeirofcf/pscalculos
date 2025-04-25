@@ -84,7 +84,6 @@
             </nav>
         </div>
     </header>
-    
 
     <!-- Banner Principal -->
     <section class="hero">
@@ -259,40 +258,53 @@
 
     <!-- Contato -->
     <section id="contato" class="contact">
-    <div class="container">
-        ...
-        <div class="contact-form">
-            <form id="lead-form" onsubmit="return enviarFormulario(event)">
-                <div class="form-group">
-                    <label for="name">Seu nome</label>
-                    <input type="text" id="name" name="name" placeholder="Digite seu nome completo" required>
+        <div class="container">
+            <div class="contact-info">
+                <h2>ENTRE EM CONTATO</h2>
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
                 </div>
-
-                <div class="form-group">
-                    <label for="email">Seu e-mail</label>
-                    <input type="email" id="email" name="email" placeholder="exemplo@email.com" required>
+                <p>Entre em contato conosco</p>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                 </div>
-
-                <div class="form-group">
-                    <label for="subject">Assunto</label>
-                    <input type="text" id="subject" name="subject" placeholder="Qual o assunto?" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="whatsapp">WhatsApp</label>
-                    <input type="tel" id="whatsapp" name="whatsapp" placeholder="(DDD) 90000-0000" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="message">Sua mensagem (opcional)</label>
-                    <textarea id="message" name="message" placeholder="Digite sua mensagem aqui..."></textarea>
-                </div>
-
-                <button type="submit" class="btn btn-submit">Enviar Mensagem</button>
-            </form>
+            </div>
+            
+            <div class="contact-form">
+                <form id="lead-form">
+                    <div class="form-group">
+                        <label for="name">Seu nome</label>
+                        <input type="text" id="name" name="name" placeholder="Digite seu nome completo" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Seu e-mail</label>
+                        <input type="email" id="email" name="email" placeholder="exemplo@email.com" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="subject">Assunto</label>
+                        <input type="text" id="subject" name="subject" placeholder="Qual o assunto?" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="whatsapp">WhatsApp</label>
+                        <input type="tel" id="whatsapp" name="whatsapp" placeholder="(DDD) 90000-0000" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Sua mensagem (opcional)</label>
+                        <textarea id="message" name="message" placeholder="Digite sua mensagem aqui..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-submit">Enviar Mensagem</button>
+                </form>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Footer -->
     <footer>
@@ -320,14 +332,13 @@
     <script src="js/script.js"></script>
     <script src="js/lead-capture.js"></script>
     
-    
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JZSPT4951W"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M5L2JFYEEP"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-JZSPT4951W');
+      gtag('config', 'G-M5L2JFYEEP');
       gtag('config', 'AW-11482096216'); // Google Ads
     </script>
     
@@ -346,44 +357,5 @@
         return false;
       }
     </script>
-    <script>
-function enviarFormulario(event) {
-  event.preventDefault();
-
-  // Pega os valores do formulário
-  const nome = document.getElementById('name').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const assunto = document.getElementById('subject').value.trim();
-  const whatsapp = document.getElementById('whatsapp').value.trim();
-  const mensagem = document.getElementById('message').value.trim();
-
-  // Validação de Nome Completo
-  if (nome.split(' ').length < 2) {
-    alert("Por favor, digite seu nome completo.");
-    return false;
-  }
-
-  // Aqui você poderia fazer o envio para um servidor, se existisse API/backend
-  // Mas como você quer redirecionar para o WhatsApp, vamos montar a mensagem:
-
-  const textoWhatsApp = `Olá, meu nome é ${nome}. Gostaria de falar sobre: ${assunto}. Meu e-mail é ${email}. Mensagem: ${mensagem}`;
-  const textoCodificado = encodeURIComponent(textoWhatsApp);
-
-  // Exibe mensagem de agradecimento
-  document.querySelector(".contact-form").innerHTML = `
-    <h2>Obrigado pelo contato!</h2>
-    <p>Recebemos sua mensagem. Em instantes, você será redirecionado para o nosso WhatsApp.</p>
-  `;
-
-  // Redireciona após 3 segundos
-  setTimeout(() => {
-    window.location.href = `https://wa.me/5521991159686?text=${textoCodificado}`;
-  }, 3000);
-
-  return false;
-}
-</script>
-
-    
 </body>
 </html>
