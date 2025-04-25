@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obrigado pelo contato - Pontes & Silva Cálculos Judiciais</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Meta tags para SEO e Google Ads -->
+    <meta name="description" content="Obrigado por entrar em contato com a Pontes & Silva Cálculos Judiciais.">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11482096216"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-11482096216');
+      
+      // Evento de conversão
+      gtag('event', 'conversion', {
+        'send_to': 'AW-11482096216',
+      });
+    </script>
+    <style>
+        .thank-you-container {
+            text-align: center;
+            padding: 80px 20px;
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .thank-you-icon {
+            font-size: 80px;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            animation: bounce 2s infinite;
+        }
+        
+        .thank-you-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+        
+        .thank-you-message {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+        
+        .redirect-message {
+            font-size: 16px;
+            margin-bottom: 20px;
+            color: #666;
+        }
+        
+        .countdown {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 30px;
+        }
+        
+        .manual-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+        
+        .manual-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.6);
+        }
+        
+        .home-link {
+            margin-top: 40px;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .home-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="index.html"><img src="images/logo.png" alt="Pontes & Silva Cálculos Judiciais"></a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="index.html#servicos">Nossos Serviços</a></li>
+                    <li><a href="index.html#contato">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conteúdo de Agradecimento -->
+    <section class="thank-you-container">
+        <div class="thank-you-icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <h1 class="thank-you-title">Obrigado pelo seu contato!</h1>
+        <p class="thank-you-message">Recebemos sua mensagem com sucesso. Nossa equipe entrará em contato o mais breve possível para atender à sua solicitação.</p>
+        <p class="redirect-message">Você será redirecionado para o WhatsApp em:</p>
+        <div class="countdown" id="countdown">5</div>
+        <a href="#" id="whatsapp-link" class="manual-button">
+            <i class="fab fa-whatsapp"></i> Continuar para o WhatsApp
+        </a>
+        <a href="index.html" class="home-link">Voltar para a página inicial</a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="Pontes & Silva Cálculos Judiciais">
+                </div>
+                <div class="footer-info">
+                    <p>&copy; 2025 Pontes & Silva Cálculos Judiciais. CNPJ 51.362.258/0001-79. Todos os direitos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script para redirecionamento -->
+    <script>
+        // Recupera os parâmetros da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const nome = urlParams.get('nome') || '';
+        const email = urlParams.get('email') || '';
+        const assunto = urlParams.get('assunto') || '';
+        const whatsapp = urlParams.get('whatsapp') || '';
+        const mensagem = urlParams.get('mensagem') || '';
+        
+        // Prepara a mensagem para o WhatsApp
+        const whatsappMessage = encodeURIComponent(
+            `*Novo contato do site Pontes & Silva Cálculos Judiciais*\n\n` +
+            `*Nome:* ${nome}\n` +
+            `*E-mail:* ${email}\n` +
+            `*Assunto:* ${assunto}\n` +
+            `*WhatsApp:* ${whatsapp}\n` +
+            `*Mensagem:* ${mensagem}\n\n` +
+            `Enviado em: ${new Date().toLocaleString('pt-BR')}`
+        );
+        
+        // Cria o link do WhatsApp
+        const whatsappUrl = `https://wa.me/5521987708652?text=${whatsappMessage}`;
+        
+        // Atualiza o link do botão
+        document.getElementById('whatsapp-link').href = whatsappUrl;
+        
+        // Contador regressivo
+        let count = 5;
+        const countdownElement = document.getElementById('countdown');
+        
+        const countdownInterval = setInterval(() => {
+            count--;
+            countdownElement.textContent = count;
+            
+            if (count <= 0) {
+                clearInterval(countdownInterval);
+                window.location.href = whatsappUrl;
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
