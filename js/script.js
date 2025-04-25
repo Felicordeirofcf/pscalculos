@@ -1,64 +1,79 @@
-// Script para o site Pontes & Silva Cálculos Judiciais
+// Script principal do site
 
-function enviarFormulario(event) {
-  event.preventDefault();
+// Função para animar elementos quando eles entram na viewport
+document.addEventListener('DOMContentLoaded', function() {
+    // Função para verificar se um elemento está visível na viewport
+    function isElementInViewport(el) {
+        var rect = el.getBoundingClientRect();
+        return (
+            rect.top >= 0 &&
+            rect.left >= 0 &&
+            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+        );
+    }
 
-  // Pega os valores do formulário
-  const nome = document.getElementById('name').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const assunto = document.getElementById('subject').value.trim();
-  const whatsapp = document.getElementById('whatsapp').value.trim();
-  const mensagem = document.getElementById('message').value.trim();
+    // Função para adicionar classe de animação quando o elemento está visível
+    function handleScrollAnimations() {
+        var animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
+        
+        animatedElements.forEach(function(element) {
+            if (isElementInViewport(element) && !element.classList.contains('animated')) {
+                element.classList.add('animated');
+            }
+        });
+    }
 
-  // Validação básica
-  if (!nome || !email || !assunto || !whatsapp) {
-    alert('Por favor, preencha todos os campos obrigatórios.');
-    return false;
-  }
-
-  // Validação de e-mail
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(email)) {
-    alert('Por favor, insira um e-mail válido.');
-    return false;
-  }
-
-  // Redirecionar para a página de agradecimento com os parâmetros
-  window.location.href = `obrigado.html?nome=${encodeURIComponent(nome)}&email=${encodeURIComponent(email)}&assunto=${encodeURIComponent(assunto)}&whatsapp=${encodeURIComponent(whatsapp)}&mensagem=${encodeURIComponent(mensagem)}`;
-  
-  // Rastreamento de conversão do Google Ads
-  if (typeof gtag === 'function') {
-    gtag('event', 'conversion', {
-      'send_to': 'AW-11482096216',
-      'value': 1.0,
-      'currency': 'BRL'
+    // Verificar animações no carregamento e no scroll
+    handleScrollAnimations();
+    window.addEventListener('scroll', handleScrollAnimations);
+    
+    // Menu mobile
+    var menuToggle = document.querySelector('.menu-toggle');
+    if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+            var nav = document.querySelector('nav');
+            nav.classList.toggle('active');
+        });
+    }
+    
+    // Smooth scroll para links de âncora
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            }
+        });
     });
-  }
-  
-  return false;
-}
+});
 
 // Máscara para o campo de WhatsApp
 document.addEventListener('DOMContentLoaded', function() {
-  const whatsappInput = document.getElementById('whatsapp');
-  if (whatsappInput) {
-    whatsappInput.addEventListener('input', function(e) {
-      let value = e.target.value.replace(/\D/g, '');
-      if (value.length <= 11) {
-        if (value.length > 2) {
-          value = `(${value.substring(0, 2)}) ${value.substring(2)}`;
-        }
-        if (value.length > 10) {
-          value = `${value.substring(0, 10)}-${value.substring(10)}`;
-        }
-      }
-      e.target.value = value;
-    });
-  }
-  
-  // Configurar o formulário
-  const form = document.getElementById('lead-form');
-  if (form) {
-    form.setAttribute('onsubmit', 'return enviarFormulario(event)');
-  }
+    var whatsappInput = document.getElementById('whatsapp');
+    if (whatsappInput) {
+        whatsappInput.addEventListener('input', function(e) {
+            var value = e.target.value.replace(/\D/g, '');
+            var formattedValue = '';
+            
+            if (value.length > 0) {
+                formattedValue = '(' + value.substring(0, 2);
+            }
+            if (value.length > 2) {
+                formattedValue += ') ' + value.substring(2, 7);
+            }
+            if (value.length > 7) {
+                formattedValue += '-' + value.substring(7, 11);
+            }
+            
+            e.target.value = formattedValue;
+        });
+    }
 });
