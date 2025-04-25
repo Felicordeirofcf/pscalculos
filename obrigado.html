@@ -3,104 +3,97 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Obrigado pelo contato - Pontes & Silva Cálculos Judiciais</title>
+    <title>Obrigado - Pontes &amp; Silva Cálculos Judiciais</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Meta tags para SEO e Google Ads -->
-    <meta name="description" content="Obrigado por entrar em contato com a Pontes & Silva Cálculos Judiciais.">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-11482096216"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'AW-11482096216');
-      
-      // Evento de conversão
-      gtag('event', 'conversion', {
-        'send_to': 'AW-11482096216',
-      });
-    </script>
     <style>
         .thank-you-container {
             text-align: center;
             padding: 80px 20px;
-            min-height: 60vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
         }
         
         .thank-you-icon {
             font-size: 80px;
-            color: var(--primary-color);
+            color: #4CAF50;
             margin-bottom: 30px;
             animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-30px);}
+            60% {transform: translateY(-15px);}
         }
         
         .thank-you-title {
             font-size: 36px;
             margin-bottom: 20px;
-            color: var(--primary-color);
+            color: #333;
         }
         
         .thank-you-message {
             font-size: 18px;
-            max-width: 600px;
-            margin: 0 auto 30px;
+            margin-bottom: 40px;
+            color: #666;
             line-height: 1.6;
         }
         
         .redirect-message {
             font-size: 16px;
-            margin-bottom: 20px;
-            color: #666;
+            color: #888;
+            margin-top: 30px;
         }
         
         .countdown {
-            font-size: 24px;
             font-weight: bold;
-            color: var(--secondary-color);
-            margin-bottom: 30px;
+            color: #4CAF50;
         }
         
-        .manual-button {
+        .btn-whatsapp {
             display: inline-block;
-            background-color: var(--secondary-color);
+            background-color: #25D366;
             color: white;
-            padding: 12px 25px;
-            border-radius: 30px;
+            padding: 15px 30px;
+            border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
+            margin-top: 20px;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
         }
         
-        .manual-button:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.6);
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
         }
         
-        .home-link {
-            margin-top: 40px;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        .home-link:hover {
-            text-decoration: underline;
+        .btn-whatsapp i {
+            margin-right: 10px;
         }
     </style>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','AW-11482096216');</script>
+    <!-- End Google Tag Manager -->
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MNMKX8V2"
+    height="0" width="0" title="Google Tag Manager" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
     <!-- Cabeçalho -->
     <header>
         <div class="container">
             <div class="logo">
-                <a href="index.html"><img src="images/logo.png" alt="Pontes & Silva Cálculos Judiciais"></a>
+                <a href="index.html"><img src="images/logo.png" alt="Pontes &amp; Silva Cálculos Judiciais"></a>
             </div>
             <nav>
                 <ul>
@@ -118,13 +111,13 @@
             <i class="fas fa-check-circle"></i>
         </div>
         <h1 class="thank-you-title">Obrigado pelo seu contato!</h1>
-        <p class="thank-you-message">Recebemos sua mensagem com sucesso. Nossa equipe entrará em contato o mais breve possível para atender à sua solicitação.</p>
-        <p class="redirect-message">Você será redirecionado para o WhatsApp em:</p>
-        <div class="countdown" id="countdown">5</div>
-        <a href="#" id="whatsapp-link" class="manual-button">
-            <i class="fab fa-whatsapp"></i> Continuar para o WhatsApp
+        <p class="thank-you-message">Recebemos sua mensagem com sucesso. Nossa equipe entrará em contato o mais breve possível para fornecer as informações que você precisa sobre nossos serviços de cálculos judiciais.</p>
+        
+        <a href="#" id="whatsapp-link" class="btn-whatsapp">
+            <i class="fab fa-whatsapp"></i> Continuar no WhatsApp
         </a>
-        <a href="index.html" class="home-link">Voltar para a página inicial</a>
+        
+        <p class="redirect-message">Você será redirecionado para o WhatsApp em <span id="countdown" class="countdown">5</span> segundos...</p>
     </section>
 
     <!-- Footer -->
@@ -132,10 +125,10 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
-                    <img src="images/logo.png" alt="Pontes & Silva Cálculos Judiciais">
+                    <img src="images/logo.png" alt="Pontes &amp; Silva Cálculos Judiciais">
                 </div>
                 <div class="footer-info">
-                    <p>&copy; 2025 Pontes & Silva Cálculos Judiciais. CNPJ 51.362.258/0001-79. Todos os direitos reservados.</p>
+                    <p>&copy; 2025 Pontes &amp; Silva Cálculos Judiciais. CNPJ 51.362.258/0001-79. Todos os direitos reservados.</p>
                 </div>
             </div>
         </div>
@@ -143,44 +136,58 @@
 
     <!-- Script para redirecionamento -->
     <script>
-        // Recupera os parâmetros da URL
-        const urlParams = new URLSearchParams(window.location.search);
-        const nome = urlParams.get('nome') || '';
-        const email = urlParams.get('email') || '';
-        const assunto = urlParams.get('assunto') || '';
-        const whatsapp = urlParams.get('whatsapp') || '';
-        const mensagem = urlParams.get('mensagem') || '';
-        
-        // Prepara a mensagem para o WhatsApp
-        const whatsappMessage = encodeURIComponent(
-            `*Novo contato do site Pontes & Silva Cálculos Judiciais*\n\n` +
-            `*Nome:* ${nome}\n` +
-            `*E-mail:* ${email}\n` +
-            `*Assunto:* ${assunto}\n` +
-            `*WhatsApp:* ${whatsapp}\n` +
-            `*Mensagem:* ${mensagem}\n\n` +
-            `Enviado em: ${new Date().toLocaleString('pt-BR')}`
-        );
-        
-        // Cria o link do WhatsApp
-        const whatsappUrl = `https://wa.me/5521987708652?text=${whatsappMessage}`;
-        
-        // Atualiza o link do botão
-        document.getElementById('whatsapp-link').href = whatsappUrl;
-        
-        // Contador regressivo
-        let count = 5;
-        const countdownElement = document.getElementById('countdown');
-        
-        const countdownInterval = setInterval(() => {
-            count--;
-            countdownElement.textContent = count;
+        document.addEventListener('DOMContentLoaded', function() {
+            // Recuperar dados do formulário do localStorage
+            var formData = JSON.parse(localStorage.getItem('formData')) || {};
+            var name = formData.name || '';
+            var email = formData.email || '';
+            var subject = formData.subject || '';
+            var message = formData.message || '';
             
-            if (count <= 0) {
-                clearInterval(countdownInterval);
-                window.location.href = whatsappUrl;
+            // Criar mensagem para WhatsApp
+            var whatsappMessage = "Olá, sou " + name + "! ";
+            whatsappMessage += "Gostaria de solicitar informações sobre " + subject + ". ";
+            if (message) {
+                whatsappMessage += "Mensagem adicional: " + message + ". ";
             }
-        }, 1000);
+            whatsappMessage += "Meu email para contato é: " + email + ".";
+            
+            // Codificar a mensagem para URL
+            var encodedMessage = encodeURIComponent(whatsappMessage);
+            
+            // Criar link do WhatsApp
+            var whatsappLink = "https://wa.me/5521991159686?text=" + encodedMessage;
+            
+            // Atualizar o link do botão
+            document.getElementById('whatsapp-link').href = whatsappLink;
+            
+            // Configurar contagem regressiva e redirecionamento
+            var count = 5;
+            var countdownElement = document.getElementById('countdown');
+            var countdown = setInterval(function() {
+                count--;
+                countdownElement.textContent = count;
+                if (count <= 0) {
+                    clearInterval(countdown);
+                    window.location.href = whatsappLink;
+                }
+            }, 1000);
+        });
+    </script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M5L2JFYEEP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-M5L2JFYEEP');
+      gtag('config', 'AW-11482096216'); // Google Ads
+      
+      // Evento de conversão
+      gtag('event', 'conversion', {
+        'send_to': 'AW-11482096216/9GkiCKPQ_oMZEJnQ2sQq'
+      });
     </script>
 </body>
 </html>
