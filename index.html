@@ -275,7 +275,7 @@
             </div>
             
             <div class="contact-form">
-                <form id="lead-form">
+                <form id="lead-form"> onsubmit="return enviarFormulario(event)">
                     <div class="form-group">
                         <label for="name">Seu nome</label>
                         <input type="text" id="name" name="name" placeholder="Digite seu nome completo" required>
@@ -332,7 +332,7 @@
     <!-- Scripts -->
     <script src="js/script.js"></script>
     <script src="js/lead-capture.js"></script>
-    <form id="lead-form" onsubmit="return enviarFormulario(event)">
+    
     
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JZSPT4951W"></script>
