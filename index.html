@@ -43,7 +43,7 @@
       "name": "Pontes &amp; Silva Cálculos Judiciais",
       "image": "images/logo.png",
       "url": "https://www.pscalculos.com.br",
-      "telephone": "+5521987708652",
+      "telephone": "+5521991159686",
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "BR"
@@ -84,7 +84,6 @@
             </nav>
         </div>
     </header>
-    
 
     <!-- Banner Principal -->
     <section class="hero">
@@ -97,7 +96,7 @@
                 <p class="slide-in-right">Atendemos advogados, contadores que precisam de cálculos claros, atualizados e bem fundamentados.</p>
                 <div class="cta-buttons fade-in">
                     <a href="#servicos" class="btn btn-primary pulse">Saiba mais</a>
-                    <a href="https://wa.me/5521987708652" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Contate-nos</a>
+                    <a href="https://wa.me/5521991159686" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Contate-nos</a>
                 </div>
             </div>
         </div>
@@ -275,7 +274,7 @@
             </div>
             
             <div class="contact-form">
-                <form id="lead-form">
+                <form id="lead-form" action="obrigado.html" method="post" onsubmit="return validateForm()">
                     <div class="form-group">
                         <label for="name">Seu nome</label>
                         <input type="text" id="name" name="name" placeholder="Digite seu nome" required>
@@ -323,7 +322,7 @@
 
     <!-- WhatsApp Flutuante -->
     <div class="whatsapp-float">
-        <a href="https://wa.me/5521987708652" target="_blank" rel="noopener noreferrer">
+        <a href="https://wa.me/5521991159686" target="_blank" rel="noopener noreferrer">
             <i class="fab fa-whatsapp"></i>
             <span>Fale Conosco</span>
         </a>
@@ -331,14 +330,43 @@
 
     <!-- Scripts -->
     <script src="js/script.js"></script>
+    <script>
+    // Função para validar o formulário
+    function validateForm() {
+        // Obter os valores dos campos
+        var name = document.getElementById('name').value;
+        var email = document.getElementById('email').value;
+        var subject = document.getElementById('subject').value;
+        var whatsapp = document.getElementById('whatsapp').value;
+        var message = document.getElementById('message').value;
+        
+        // Verificar se os campos obrigatórios estão preenchidos
+        if (name === '' || email === '' || subject === '' || whatsapp === '') {
+            alert('Por favor, preencha todos os campos obrigatórios.');
+            return false;
+        }
+        
+        // Se tudo estiver correto, redirecionar para a página de agradecimento
+        // e preparar para enviar mensagem para WhatsApp
+        localStorage.setItem('formData', JSON.stringify({
+            name: name,
+            email: email,
+            subject: subject,
+            whatsapp: whatsapp,
+            message: message
+        }));
+        
+        return true;
+    }
+    </script>
     
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JZSPT4951W"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-M5L2JFYEEP"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-JZSPT4951W');
+      gtag('config', 'G-M5L2JFYEEP');
       gtag('config', 'AW-11482096216'); // Google Ads
     </script>
     
@@ -351,7 +379,7 @@
           }
         };
         gtag('event', 'conversion', {
-            'send_to': 'AW-11482096216',
+            'send_to': 'AW-11482096216/9GkiCKPQ_oMZEJnQ2sQq',
             'event_callback': callback
         });
         return false;
