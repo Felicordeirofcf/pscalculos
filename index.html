@@ -274,7 +274,7 @@
             </div>
             
             <div class="contact-form">
-                <form id="lead-form" action="obrigado.html" method="post" onsubmit="return validateForm()">
+                <form id="lead-form" action="obrigado.html" method="get" onsubmit="return validateForm()">
                     <div class="form-group">
                         <label for="name">Seu nome</label>
                         <input type="text" id="name" name="name" placeholder="Digite seu nome" required>
@@ -356,7 +356,9 @@
             message: message
         }));
         
-        return true;
+        // Redirecionar manualmente para a página de agradecimento
+        window.location.href = 'obrigado.html';
+        return false; // Impedir o envio normal do formulário
     }
     </script>
     
